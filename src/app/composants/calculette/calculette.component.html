@@ -19,15 +19,15 @@ operation arithmetique
 Le resultat sera affiche en-dessous du formulaire. -->
 
 <div class="container">
-    <form #calculette=ngForm class="d-flex flex-row">
+    <form #calculette="ngForm" class="d-flex flex-row">
         <div class="form-group p-2" >
             <label for="nb1">nombre 1 </label>
             <input type="number" class="form-control" id="nb1" aria-describedby="nb" 
-            placeholder="Entrer un premier nombre" name="nb1" [(ngModel)]=nb1>
+                    name="nb1" [(ngModel)]=nb1>
             
             <label for="nb2">nombre 2 </label>
             <input type="number" class="form-control" id="nb2" aria-describedby="nb" 
-            placeholder="Entrer un deuxième nombre" name="nb2" [(ngModel)]=nb2 >
+                    name="nb2" [(ngModel)]=nb2 >
 
             <small id="nb" class="form-text text-muted">Entrez des nombres</small>
         </div>
@@ -44,7 +44,7 @@ Le resultat sera affiche en-dessous du formulaire. -->
   </div> 
 
    <div class="resultat">
-    {{resultat}}
+    = {{resultat}}
   </div> 
 
   <p class="text-danger">{{result}}</p>

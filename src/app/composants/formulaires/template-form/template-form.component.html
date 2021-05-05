@@ -43,21 +43,37 @@ formulaire). Créer le boutton supprimer qui va avec -->
     </div> -->
 
 
-<!-- <div class="container">
-    <form>
+
+    <!--Correction -->
+    <!-- <form #myForm="ngForm" (ngSubmit)=ajouterPersonne(myForm)>
         <div class="form-group">
-        <label for="exampleInputEmail1">Mél.</label>
-        <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Entrer email">
-        <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+            <label for="nom">Nom:</label>
+            <input class="form-control" type="text" name="nom" [(ngModel)]="personne.nom" required #nom="ngModel">
+        </div>
+        <div [hidden]="nom.valid || nom.pristine">
+            le nom est obligatoire
         </div>
         <div class="form-group">
-        <label for="exampleInputPassword1">Mot de passe</label>
-        <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Mot de passe">
+            <label for="prenom">Prenom:</label>
+            <input class="form-control" type="text" name="prenom" [(ngModel)]="personne.prenom" required #prenom="ngModel">
         </div>
-        <div class="form-check">
-        <input type="checkbox" class="form-check-input" id="exampleCheck1">
-        <label class="form-check-label" for="exampleCheck1">Rester connecté</label>
+        <div [hidden]="prenom.valid || prenom.pristine">
+            le prenom est obligatoire
         </div>
-        <button type="submit" class="btn btn-primary">Envoyer</button>
+        <div>
+            <button class="btn btn-success" [disabled]="!myForm.valid">
+                Ajouter
+            </button>
+        </div>
     </form>
-  </div> -->
+    <ul class="list-group">
+        <li class="list-group-item" *ngFor="let personne of personnes; index as i">
+            {{ personne.nom }} {{ personne.prenom }}
+             <button type="submit" class="btn btn-danger" (click)="supprimerPersonne(personne)">
+                    supprimer
+                </button> 
+            <button type="submit" class="btn btn-danger" (click)="supprimerP(i)">
+                supprimer
+            </button>
+        </li>
+    </ul> -->

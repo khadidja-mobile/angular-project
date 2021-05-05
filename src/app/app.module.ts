@@ -11,6 +11,7 @@ import { ErrorComponent } from './composants/error/error.component';
 import { TemplateFormComponent } from './composants/formulaires/template-form/template-form.component';
 import { FormsModule } from '@angular/forms';
 import { CalculetteComponent } from './composants/calculette/calculette.component';
+import { CorrectionCalculetteComponent } from './composants/correction-calculette/correction-calculette.component';
 
 @NgModule({
   declarations: [
@@ -19,7 +20,7 @@ import { CalculetteComponent } from './composants/calculette/calculette.componen
     AdresseComponent,
     StagiaireComponent,
     CorrectionComponent, 
-    ErrorComponent, TemplateFormComponent, CalculetteComponent
+    ErrorComponent, TemplateFormComponent, CalculetteComponent, CorrectionCalculetteComponent
   ],
   imports: [
     BrowserModule,

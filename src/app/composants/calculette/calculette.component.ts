@@ -6,12 +6,12 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./calculette.component.css']
 })
 export class CalculetteComponent implements OnInit {
-
-  result = "";
   nom = "";
-  resultat = 0;
-  nb1 = 0;
-  nb2 = 0;
+
+  result ="";
+  resultat! : number;
+  nb1! : number;
+  nb2! :number;
   
   constructor() { }
 
@@ -40,7 +40,7 @@ export class CalculetteComponent implements OnInit {
     }
     else {
       this.result = "Division par zéro interdite";
-      // this.resultat = ;
+      //calculette.form.reset();
     }
     
   }

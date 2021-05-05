@@ -7,6 +7,7 @@ import { ErrorComponent } from './composants/error/error.component';
 import { CorrectionComponent } from './composants/correction/correction.component';
 import { TemplateFormComponent } from './composants/formulaires/template-form/template-form.component';
 import { CalculetteComponent } from './composants/calculette/calculette.component';
+import { CorrectionCalculetteComponent } from './composants/correction-calculette/correction-calculette.component';
 
 const routes: Routes = [
   //http://localhost:4200/
@@ -32,6 +33,8 @@ const routes: Routes = [
   {path: 'adresse/:ville/:codepostal', component: AdresseComponent },
   //http://localhost:4200/correction
   {path: 'correction', component: CorrectionComponent },
+  //http://localhost:4200/correction-calculette
+  {path: 'correction-calculette', component: CorrectionCalculetteComponent },
 
   //http://localhost:4200/calculette
   {path: 'calculette', component: CalculetteComponent },
