@@ -1,0 +1,50 @@
+<p>calculette works!</p>
+
+<!-- <div>
+    <input type=text [(ngModel)]=nom>
+    </div>
+    <div>
+    <button (click)="direBonjour(nom)">cliquer</button>
+    </div>
+    <div>
+    Bonjour {{ result }}
+</div> -->
+
+<!-- Exercice 2
+Creez un composant calculette (n’oubliez pas de lui associer
+une route calculette)
+Dans calculette.component.html, definissez deux champs
+input de type number et quatre boutons : un pour chaque
+operation arithmetique
+Le resultat sera affiche en-dessous du formulaire. -->
+
+<div class="container">
+    <form #calculette=ngForm class="d-flex flex-row">
+        <div class="form-group p-2" >
+            <label for="nb1">nombre 1 </label>
+            <input type="number" class="form-control" id="nb1" aria-describedby="nb" 
+            placeholder="Entrer un premier nombre" name="nb1" [(ngModel)]=nb1>
+            
+            <label for="nb2">nombre 2 </label>
+            <input type="number" class="form-control" id="nb2" aria-describedby="nb" 
+            placeholder="Entrer un deuxième nombre" name="nb2" [(ngModel)]=nb2 >
+
+            <small id="nb" class="form-text text-muted">Entrez des nombres</small>
+        </div>
+
+        <div class="d-inline-flex">
+            <button type="submit" class="btn btn-success" [disabled] = "!calculette.valid" (click)="additionner(nb1, nb2)" >Additionner</button>
+            <button type="submit" class="btn btn-danger" [disabled] = "!calculette.valid" (click)="soustraire(nb1, nb2)">Soustraire</button>
+            <button type="submit" class="btn btn-warning" [disabled] = "!calculette.valid" (click)="multiplier(nb1, nb2)">Multiplier</button>
+            <button type="submit" class="btn btn-info" [disabled] = "!calculette.valid" (click)="diviser(nb1, nb2)">Diviser</button>
+    
+            <!--<button type="submit" class="btn btn-primary" [disabled] = "!calculette.valid">Calculer</button> -->
+        </div>
+    </form>
+  </div> 
+
+   <div class="resultat">
+    {{resultat}}
+  </div> 
+
+  <p class="text-danger">{{result}}</p>

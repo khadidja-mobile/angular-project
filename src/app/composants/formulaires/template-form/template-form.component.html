@@ -1,0 +1,63 @@
+<br>
+<form #myForm=ngForm (ngSubmit)="ajouterPersonne()">
+    <div>
+        Nom: <input type="text" name="nom" [(ngModel)]="personne.nom" required #nom="ngModel">
+    </div>
+    <!-- {{ nom.className }} -->
+    <div [hidden]="nom.valid || nom.pristine">Le nom est obligatoire</div>
+    <br>
+    <div>
+        Prénom: <input type="text" name="prenom" [(ngModel)]="personne.prenom" required #prenom="ngModel">
+    </div>
+    <!-- {{ prenom.className }} -->
+    <div [hidden]="prenom.valid  || prenom.pristine">Le prenom est obligatoire</div>
+    <br>
+    <div>
+        <button class="btn btn-primary" [disabled] = "!myForm.valid">Ajouter</button>
+    </div>
+    <br>
+    <!-- <div>
+        <button (click)="direBonjour(nom.value)">Cliquer</button>
+    </div> -->
+    <br>
+</form>
+
+<!-- Exercice 1
+Modifier le composant formulaire pour afficher les personnes
+ajoutees en-dessous du formulaire
+A chaque ajout, la nouvelle personne ajoutee apparaıt comme
+dernier element de la liste des personnes (affich´ee en-dessous du
+formulaire). Créer le boutton supprimer qui va avec -->
+
+<div>
+    <p *ngFor="let personne of personnes">{{ personne.nom }} {{ personne.prenom }}
+        <button (click)="supprimerPersonne(personne)" class="btn btn-danger">Supprimer</button>
+    </p>
+</div>
+
+
+
+
+    <!-- <div>
+        Bonjour {{ result }}
+    </div> -->
+
+
+<!-- <div class="container">
+    <form>
+        <div class="form-group">
+        <label for="exampleInputEmail1">Mél.</label>
+        <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Entrer email">
+        <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+        </div>
+        <div class="form-group">
+        <label for="exampleInputPassword1">Mot de passe</label>
+        <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Mot de passe">
+        </div>
+        <div class="form-check">
+        <input type="checkbox" class="form-check-input" id="exampleCheck1">
+        <label class="form-check-label" for="exampleCheck1">Rester connecté</label>
+        </div>
+        <button type="submit" class="btn btn-primary">Envoyer</button>
+    </form>
+  </div> -->

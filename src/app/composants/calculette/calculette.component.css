@@ -1,0 +1,17 @@
+.resultat{
+
+    text-align: center;
+    background: #0a78ee;
+    color: #fff;
+    padding: 50px;
+    font-size: 3em;
+    border-radius: 6px;
+
+}
+
+input[type="number"] {
+    border: 2px solid #0a78ee;
+    font-size: 2em;
+    color: #000;
+    text-align: center;
+}
