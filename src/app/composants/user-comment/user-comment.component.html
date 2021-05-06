@@ -1,0 +1,130 @@
+<!-- <form [formGroup]="userCommentForm" (ngSubmit)="fetchAll()">
+    <h3>User</h3>
+    <div class="form-group">
+        <label for="id">Id :</label>
+        <input class="form-control" type="number" name="id" formControlName="id">
+    </div>
+    <div *ngIf="userCommentForm.controls['id'].invalid && (userCommentForm.controls['id'].dirty || 
+        userCommentForm.controls['id'].touched)" class="alert alert-danger">
+        <div *ngIf="userCommentForm.controls['id'].errors?.required">
+            L'identifiant est obligatoire
+        </div>
+    </div>
+    <div class="form-group">
+        <label for="nom">Nom :</label>
+        <input class="form-control" type="text" name="nom" formControlName="nom">
+    </div>
+    <div *ngIf="userCommentForm.controls['nom'].invalid && (userCommentForm.controls['nom'].dirty || userCommentForm.controls['nom'].touched)"
+        class="alert alert-danger">
+        <div *ngIf="userCommentForm.controls['nom'].errors?.required">
+            Le nom est obligatoire
+        </div>
+        <div *ngIf="userCommentForm.controls['nom'].errors?.erreur">
+            Premiere lettre en majuscule
+        </div>
+    </div>
+    <div class="form-group">
+        <label for="prenom">Prenom :</label>
+        <input class="form-control" type="text" name="prenom" formControlName="prenom">
+    </div>
+    <div *ngIf="userCommentForm.controls['prenom'].invalid && (userCommentForm.controls['prenom'].dirty || userCommentForm.controls['prenom'].touched)"
+        class="alert alert-danger">
+        <div *ngIf="userCommentForm.controls['prenom'].errors?.required">
+            Le prenom est obligatoire
+        </div>
+        <div *ngIf="userCommentForm.controls['prenom'].errors?.erreur">
+            Premiere lettre en majuscule
+        </div>
+    </div>
+    <!-- <div formGroupName="commentaire">
+        <h3>commentaire</h3>
+        <div class="form-group">
+            <label for="titre">Titre :</label>
+            <input class="form-control" type="text" name="titre" formControlName="titre">
+        </div>
+        <div *ngIf="commentaire.controls['titre'].invalid && (commentaire.controls['titre'].dirty || 
+        commentaire.controls['titre'].touched)" class="alert alert-danger">
+            <div *ngIf="commentaire.controls['titre'].errors?.required">
+                La titre est obligatoire
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="contenu">contenu :</label>
+            <input class="form-control" type="text" name="contenu" formControlName="contenu">
+        </div>
+        <div *ngIf="commentaire.controls['contenu'].invalid && (commentaire.controls['contenu'].dirty || 
+        commentaire.controls['contenu'].touched)" class="alert alert-danger">
+            <div *ngIf="commentaire.controls['contenu'].errors?.required">
+                La contenu est obligatoire
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="categorie">Catégorie :</label>
+            <input class="form-control" type="text" name="categorie" formControlName="categorie">
+        </div>
+        <div *ngIf="commentaire.controls['categorie'].invalid && (commentaire.controls['categorie'].dirty || 
+        commentaire.controls['categorie'].touched)" class="alert alert-danger">
+            <div *ngIf="commentaire.controls['categorie'].errors?.required">
+                Le code postal est obligatoire
+            </div>
+        </div>
+    </div> -->
+    <!-- <br>
+    <br>
+    <div formArrayName="commentaires" #el>
+        <h3 style="display: contents;">Commentaires </h3>
+        <button class="btn btn-primary" type=button (click)="ajouterCommentaire()">
+            Ajouter commentaire
+        </button>
+        <div *ngFor="let commentaire of commentaires.controls; let i= index" [formControlName]="i">
+            <div class="form-group">
+                <label for="commentaire">Titre:</label>
+                <input class="form-control" type="text" >
+                
+                <button class="btn btn-danger" type=button (click)="supprimerCommentaire(i)">
+                    supp
+                </button>
+            </div>
+        </div>
+    </div>
+    <button type="submit" class="btn btn-success" [disabled]="!userCommentForm.valid">
+        Envoyer
+    </button>
+    <div>
+        état : {{ userCommentForm.status }}
+    </div>
+</form>
+<div class="container">
+    <table class="table">
+        <thead>
+            <tr>
+                <th scope="col">#</th>
+                <th scope="col">Prenom</th>
+                <th scope="col">Nom</th>
+                <th scope="col">commentaires</th>
+            </tr>
+        </thead>
+        <tbody *ngFor="let elt of users;">
+            <tr>
+                <td>{{ elt.id }}</td>
+                <td>{{ elt.prenom }}</td>
+                <td>{{ elt.nom }}</td>
+                <td>{{ elt.commentaire.titre }} {{ elt.commentaire.contenu }} {{ elt.commentaire.categorie }}</td>
+                <span *ngFor="let subItem of elt.commentaires">
+                    <td>{{ subItem }}</td>
+                </span>
+            </tr>
+        </tbody>
+    </table>
+</div> -->
+
+<!-- Exercice
+Dans un nouveau composant, creer un formulaire qui permet a
+une User de saisir son nom, son prenom ainsi qu’un tableau
+de commentaire de taille variable.
+Chaque commentaire est compose d’un titre, un contenu et une
+categorie.
+En cliquant sur Ajouter, les donnees saisies sont affichees en
+bas du formulaire et le formulaire est vide.
+Aucun champ ne doit  etre vide a l’ajout, les nom et prenom
+doivent commencer par une lettre majuscule. --> -->

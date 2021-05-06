@@ -1,0 +1,90 @@
+<br>
+<form [formGroup]="commentaireForm" (ngSubmit)="afficher()">
+    <h3>Personne</h3>
+
+    <div class="form-group">
+        <label for="nm">Nom :</label>
+        <input class="form-control" type="text" name="nm" formControlName="nm">
+    </div>
+    <div *ngIf="commentaireForm.controls['nm'].invalid && (commentaireForm.controls['nm'].dirty || commentaireForm.controls['nm'].touched)"
+        class="alert alert-danger">
+        <div *ngIf="commentaireForm.controls['nm'].errors?.required">
+            Le nom est obligatoire
+        </div>
+        <div *ngIf="commentaireForm.controls['nm'].errors?.erreur">
+            1st letter en majuscule stp
+        </div>
+    </div>
+    <div class="form-group">
+        <label for="pr">Prenom :</label>
+        <input class="form-control" type="text" name="pr" formControlName="pr">
+    </div>
+    <div *ngIf="commentaireForm.controls['pr'].invalid && (commentaireForm.controls['pr'].dirty || commentaireForm.controls['pr'].touched)"
+        class="alert alert-danger">
+        <div *ngIf="commentaireForm.controls['pr'].errors?.required">
+            Le prenom est obligatoire
+        </div>
+        <div *ngIf="commentaireForm.controls['pr'].errors?.erreur">
+            pareil, 1st letter en majuscule
+        </div>
+    </div>
+
+    <div formArrayName="commentaires">
+        <h4>Commentaire </h4>
+        <button class="btn btn-info" type=button (click)="ajouterCommentaire()">
+            Ajouter un commentaire
+        </button>
+        <!-- <div formGroupName="commentaire"> -->
+            <div *ngFor="let commentaire of commentaires.controls; let i= index" [formGroupName]="i">
+                <div class="form-group">
+                    <label for="commentaire">Titre</label>
+                    <input class="form-control" type="text" name="titre" formControlName="titre">
+                </div>
+                <div class="form-group">
+                    <label for="commentaire">Contenu</label>
+                    <input class="form-control" type="textarea" name="Contenu" formControlName="Contenu">
+                </div>
+                <div class="form-group">
+                    <label for="commentaire">Catégorie</label>
+                    <input class="form-control" type="text" name="categorie" formControlName="categorie">
+                </div>
+                    <!-- <button class="btn btn-primary" type=button (click)="ajouterCommentaire()">
+                        Ajouter comment
+                    </button> -->
+
+                    <button class="btn btn-danger" type=button (click)="supprimerCommentaire(i)">
+                        poubelle
+                    </button>
+                    <br>
+            </div>
+        <!-- </div> -->
+    </div>
+    <br>
+    <br>
+    <button type="submit" class="btn btn-success" [disabled] = "!commentaireForm.valid">
+        Envoyer
+    </button>
+</form>
+<br>
+<br>
+
+<div class="container">
+    <table class="table">
+        <thead>
+            <tr>
+                <th scope="col">Nom</th>
+                <th scope="col">Prenom</th>
+                <th scope="col">Commentaires</th>
+            </tr>
+        </thead>
+        <tbody *ngFor="let user of users;">
+            <tr>
+                <td>{{ user.nm }}</td>
+                <td>{{ user.pr }}</td>
+                <span *ngFor="let comment of user.commantaires">
+                    <td>{{ comment.titre }} {{ comment.contenu }} {{ comment.categorie }}</td>
+                </span>
+            </tr>
+        </tbody>
+    </table>
+</div>
