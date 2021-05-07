@@ -13,6 +13,13 @@ import { CommentaireComponent } from './composants/formulaires/commentaire/comme
 import { CorrectionCommentComponent } from './composants/formulaires/correction-comment/correction-comment.component';
 import { PersonneComponent } from './composants/personne/personne/personne.component';
 import { PersonneDetailsComponent } from './composants/personne/personne-details/personne-details.component';
+import { PersonResolver } from './resolvers/person.resolver';
+import { PersonDetailsResolver } from './resolvers/person-details.resolver';
+import { RocketComponent } from './composants/rocket/rocket/rocket.component';
+import { RocketResolver } from './resolvers/rocket.resolver';
+import { RocketDetailsComponent } from './composants/rocket/rocket-details/rocket-details.component';
+import { RocketDetailsResolver } from './resolvers/rocket-details.resolver';
+import { RocketEditComponent } from './composants/rocket/rocket-edit/rocket-edit.component';
 // import { UserCommentComponent } from './composants/user-comment/user-comment.component';
 
 const routes: Routes = [
@@ -52,15 +59,23 @@ const routes: Routes = [
   //http://localhost:4200/correction-calculette
   {path: 'correction-calculette', component: CorrectionCalculetteComponent },
 
- 
  //http://localhost:4200/correction-calculette
  {path: 'correction-comment', component: CorrectionCommentComponent },
 
 //http://localhost:4200/personne
-{path: 'personne', component: PersonneComponent },
+{path: 'personne', component: PersonneComponent, resolve: { routeResolver: PersonResolver } },
 
 //http://localhost:4200/details/:id
-{path: 'details/:id', component: PersonneDetailsComponent },
+{path: 'details/:id', component: PersonneDetailsComponent, resolve: { personne: PersonDetailsResolver } },
+
+//http://localhost:4200/rocket
+{ path: 'rocket', component: RocketComponent, resolve: { routeResolver: RocketResolver }  },
+
+//http://localhost:4200/rocket-details/:id
+{ path: 'rocket-details/:id', component: RocketDetailsComponent, resolve: { rocket: RocketDetailsResolver }  },
+
+//http://localhost:4200/rocket-edit/:id
+{ path: 'rocket-edit/:id', component: RocketEditComponent  },
 
   //http://localhost:4200/error
   {path: 'error', component: ErrorComponent},
@@ -72,6 +87,7 @@ const routes: Routes = [
 
 @NgModule({
   imports: [RouterModule.forRoot(routes, { enableTracing: true})],
-  exports: [RouterModule]
+  exports: [RouterModule],
+  providers: [PersonResolver, PersonDetailsResolver, RocketResolver, RocketDetailsResolver]
 })
 export class AppRoutingModule { }

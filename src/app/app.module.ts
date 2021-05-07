@@ -19,6 +19,9 @@ import { CorrectionCommentComponent } from './composants/formulaires/correction-
 import { PersonneComponent } from './composants/personne/personne/personne.component';
 import { PersonneService } from './shared/personne.service';
 import { PersonneDetailsComponent } from './composants/personne/personne-details/personne-details.component';
+import { RocketComponent } from './composants/rocket/rocket/rocket.component';
+import { RocketDetailsComponent } from './composants/rocket/rocket-details/rocket-details.component';
+import { RocketEditComponent } from './composants/rocket/rocket-edit/rocket-edit.component';
 
 //import { UserCommentComponent } from './composants/user-comment/user-comment.component';
 
@@ -30,7 +33,7 @@ import { PersonneDetailsComponent } from './composants/personne/personne-details
     StagiaireComponent,
     CorrectionComponent, 
     ErrorComponent, TemplateFormComponent, CalculetteComponent, CorrectionCalculetteComponent, 
-    ReactiveFormComponent, CommentaireComponent, CorrectionCommentComponent, PersonneComponent, PersonneDetailsComponent
+    ReactiveFormComponent, CommentaireComponent, CorrectionCommentComponent, PersonneComponent, PersonneDetailsComponent, RocketComponent, RocketDetailsComponent, RocketEditComponent
   ],
   imports: [
     BrowserModule,

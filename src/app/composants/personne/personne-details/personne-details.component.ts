@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { Personne } from 'src/app/classes/personne';
 import { PersonneService } from 'src/app/shared/personne.service';
 
@@ -11,22 +11,26 @@ import { PersonneService } from 'src/app/shared/personne.service';
 export class PersonneDetailsComponent implements OnInit {
 
   id!: any;
-  personne!: any;
+  //personne: Personne = {};
+  personne! : any;
   //id!: number;
   //personne!: Personne;
 
-  constructor(private route: ActivatedRoute, private personneService: PersonneService) { }
+  constructor(private route: ActivatedRoute, private personneService: PersonneService, private router: Router) { }
 
   ngOnInit(): void {
 
-    this.id = this.route.snapshot.params['id'];
-    this.personneService.getPerson(this.id).subscribe(data => {
-      this.personne = data;
-      //this.personne = data.result[0];
+    // this.personne = this.route.snapshot.data['personne'];
+    
 
-      console.log(data);
-      console.log(data.result[0]);
-    })
+    // this.id = this.route.snapshot.params['id'];
+    // this.personneService.getPerson(this.id).subscribe(data => {
+    //   this.personne = data;
+    //   //this.personne = data.result[0];
+
+    //   console.log(data);
+    //   console.log(data.result[0]);
+    // })
 
     // this.personneService.removePerson(this.id).subscribe(data => {
     //   this.personne.removeAt( data.result[0].id );
@@ -38,10 +42,14 @@ export class PersonneDetailsComponent implements OnInit {
  
     this.personneService.updatePerson(id, data).subscribe(data => {
 
-      data = this.personne;
+      this.personne = data;
       console.log(data);
       //this.reloadData();
     })
+  }
+
+  retourPerson(){
+    this.personne.router.navigate(['/personne']);
   }
 
 }

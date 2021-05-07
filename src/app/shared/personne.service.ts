@@ -90,8 +90,8 @@ export class PersonneService {
       )
   }
 
-  updatePerson(id: any, data: Personne) {
-    let API_URL = `${this.url}/${id}`;
+  updatePerson(id: any, data: Personne):Observable<any> {
+    let API_URL = `${this.url}/${id}/update`;
     return this.http.put(API_URL, data)
     .pipe(
       catchError(this.errorMgmt)
