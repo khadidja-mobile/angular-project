@@ -1,10 +1,45 @@
-<nav class="navbar navbar-expand-sm navbar-dark bg-primary sticky-top ">
+<nav ngxNavbarDynamicExpand class="navbar-dark bg-primary">
+    <a href="#" class="navbar-brand">Formation Angular</a>
+    <button class="navbar-toggler" type="button" (click)="collapse.toggle()">
+        <span class="navbar-toggler-icon">
+        </span>
+    </button>
+    <ngx-navbar-collapse class="collapse navbar-collapse" #collapse="ngxNavbarCollapse" >
+        <ul class="navbar-nav mr-auto">
+            <li *ngFor="let tab of tabs"><a class="nav-link item" routerLink="/{{tab.path}}" routerLinkActive="active"> {{tab.title}}</a></li>    
+        
+            <li *ngIf="isConnected(); else sinon">
+                <a class="nav-link item" (click)='logOut()'>Logout</a>
+              </li>
+              <ng-template #sinon>
+                <li>
+                  <a class="nav-link item" routerLink="auth">
+                    Login
+                  </a>
+                </li>
+              </ng-template> 
+        </ul>
+    </ngx-navbar-collapse>
+</nav>
+<div class="container">
+    <router-outlet></router-outlet>
+</div>
+
+
+<!-- <nav class="navbar navbar-expand-sm navbar-dark bg-primary sticky-top ">
     <a href="" class="navbar-brand">Formation Angular</a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapseNavbar">
         <span class="navbar-toggler-icon">
         </span>
     </button>
     <div class="collapse navbar-collapse" id="collapseNavbar">
+        <ul class="nav navbar-nav">
+            <li *ngFor="let tab of tabs"><a class="nav-link item"  
+
+                routerLink="/{{tab.path}}" routerLinkActive="active">{{tab.title}}</a></li>
+        </ul>
+    </div> -->
+    <!-- <div class="collapse navbar-collapse" id="collapseNavbar">
         <ul class="nav navbar-nav">
             <li><a class="nav-link item" routerLink="home" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">Accueil</a></li>
             <li><a class="nav-link item" routerLink="stagiaire" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">Stagiaire</a></li>
@@ -16,15 +51,15 @@
             <li><a class="nav-link item" routerLink="correction-calculette" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">Correction Calculette</a></li>
             <li><a class="nav-link item" routerLink="commentaire" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">Commentaires</a></li>
             <li><a class="nav-link item" routerLink="correction-comment" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">Correction Comment</a></li>
-            <!-- <li><a class="nav-link item" routerLink="user-comment" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">User Comment</a></li> -->
+             <li><a class="nav-link item" routerLink="user-comment" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">User Comment</a></li> 
             <li><a class="nav-link item" routerLink="personne" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">Personne</a></li>
             <li><a class="nav-link item" routerLink="rocket" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">Rocket</a></li>
         </ul>
-    </div>
-</nav>
+    </div> -->
+<!-- </nav>
 <div class="container">
     <router-outlet></router-outlet>
-</div>
+</div> -->
 
 <!-- remplacée par la barre nav -->
 <!-- <app-home></app-home>
